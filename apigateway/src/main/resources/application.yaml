@@ -1,0 +1,25 @@
+server:
+  port: 8091
+
+zuul:
+  routes:
+    incident-service:
+      url: http://localhost:8085
+    searchincident-service:
+      url: http://localhost:8090
+    updatecustomer-service:
+      url: http://localhost:8089
+    updateincident-service:
+      url: http://localhost:8086
+    registration-service:
+      url: http://localhost:8084
+
+ribbon:
+  ReadTimeout: 60000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeOutInMilliseconds: 60000
